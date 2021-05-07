@@ -61,14 +61,14 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                     
-                    CustomTextField(text: $fullname, placeholder: Text("Full Name"), imageName: "person")
+                    CustomTextField(text: $fullname, placeholder: Text("Nombre completo"), imageName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                     
-                    CustomSecureField(text: $password, placeholder: Text("Password"))
+                    CustomSecureField(text: $password, placeholder: Text("Contraseña"))
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -80,7 +80,7 @@ struct RegistrationView: View {
                     viewModel.register(withEmail: email, password: password, image: selectedImage, fullname: fullname, username: username)
                 },
                        label: {
-                    Text("Sign Up")
+                    Text("Regístrate")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(width: 360, height: 50)
@@ -93,10 +93,10 @@ struct RegistrationView: View {
                 
                 Button(action: { mode.wrappedValue.dismiss() }, label: {
                     HStack {
-                        Text("Already have an account?")
+                        Text("Tienes una cuenta?")
                             .font(.system(size: 14))
                         
-                        Text("Sign In")
+                        Text("Inicar Sesión")
                             .font(.system(size: 14, weight: .semibold))
                     }.foregroundColor(.black)
                 })

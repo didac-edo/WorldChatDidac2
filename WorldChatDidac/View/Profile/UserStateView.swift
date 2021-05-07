@@ -21,9 +21,3 @@ struct UserStateView: View {
         }.frame(width: 80, alignment: .center)
     }
 }
-
-struct UserStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserStateView(value: 1, title: "Post")
-    }
-}

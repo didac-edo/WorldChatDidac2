@@ -9,13 +9,64 @@ import SwiftUI
 
 struct ResetPasswordView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    var body: some View {
-        Text("ResetPasswordView")
+    @Environment(\.presentationMode) var mode
+    @Binding private var email: String
+    
+    init(email: Binding<String>) {
+        self._email = email
     }
-}
-
-struct ResetPasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResetPasswordView()
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                Spacer()
+                Image("ImageLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 330, height: 200)
+                    .foregroundColor(.white)
+                                    
+                VStack(spacing: 20) {
+                    CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
+                        .padding()
+                        .background(Color(.init(white: 1, alpha: 0.15)))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 32)
+                }
+                                    
+                Button(action: {
+                    viewModel.resetPassword(withEmail: email)
+                }, label: {
+                    Text("Send Reset Password Link")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 360, height: 50)
+                        .background(Color(.blue))
+                        .clipShape(Capsule())
+                        .padding()
+                })
+                
+                Spacer()
+                
+                Button(action: { mode.wrappedValue.dismiss() }, label: {
+                    HStack {
+                        Text("Already have an account?")
+                            .font(.system(size: 14))
+                        
+                        Text("Sign In")
+                            .font(.system(size: 14, weight: .semibold))
+                    }.foregroundColor(.black)
+                })
+            }
+            .padding(.top, -44)
+        }
+        .onReceive(viewModel.$didSendResetPasswordLink, perform: { _ in
+            self.mode.wrappedValue.dismiss()
+        })
     }
 }

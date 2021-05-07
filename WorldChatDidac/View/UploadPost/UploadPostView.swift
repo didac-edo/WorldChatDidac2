@@ -11,6 +11,7 @@ struct UploadPostView: View {
     @State private var selectedImage: UIImage?
     @State var postImage : Image?
     @State var captionText = ""
+    @State var placePost: String
     @State var imagePickerPresented = false
     @Binding var tabIndex: Int
     @ObservedObject var viewModel = UploadPostViewModel()
@@ -40,46 +41,51 @@ struct UploadPostView: View {
                     
                     TextArea(text: $captionText, placeholder: "Ingrese su título...")
                         .frame(height: 200)
+                    
+                    TextArea(text: $placePost, placeholder: "Lugar dónde estás")
+                        .frame(height: 200)
+
+                    
                 }
                 .padding()
                 
-                Button(action: {
-                    if let image = selectedImage {
-                        viewModel.uploadPost(caption: captionText, image: image) { _ in
-                            captionText = ""
-                            postImage = nil
-                            tabIndex = 0
+                HStack(spacing: 16) {
+                    Button(action: {
+                        captionText = ""
+                        postImage = nil
+                    }, label: {
+                        Text("Cancelar")
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.red)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    })
+                    
+                    Button(action: {
+                        if let image = selectedImage {
+                            viewModel.uploadPost(caption: captionText, image: image) { _ in
+                                captionText = ""
+                                postImage = nil
+                                tabIndex = 0
+                            }
                         }
-                    }
-                }, label: {
-                    Text("Cancel")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(width: 172, height: 50)
-                        .background(Color.red)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
-                }).padding()
-                
-                Button(action: {
-                    if let image = selectedImage {
-                        viewModel.uploadPost(caption: captionText, image: image) { _ in
-                            captionText = ""
-                            postImage = nil
-                            tabIndex = 0
-                        }
-                    }
-                }, label: {
-                    Text("Share")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(width: 172, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
-                }).padding()
+                    }, label: {
+                        Text("Publicar")
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.blue)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    })
+                }.padding()
             }
             
             Spacer()
         }
+    }
+    func placePostUser(placePost: String) -> String {
+        return placePost
     }
 }
 

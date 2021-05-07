@@ -9,14 +9,13 @@ import SwiftUI
 
 struct ProfileActionButtonView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    var isFollowed : Bool {
-        return viewModel.user.isFollowed ?? false
-    }
+    var isFollowed : Bool { return viewModel.user.isFollowed ?? false }
+    @State var showEditProfile = false
     
     var body: some View {
         if viewModel.user.isCurrentUser {
-            Button(action: {}, label: {
-                Text("Edit Profile")
+            Button(action: { showEditProfile.toggle() }, label: {
+                Text("Editar Perfil")
                     .font(.system(size: 14, weight: .semibold))
                     .frame(width: 360, height: 32)
                     .foregroundColor(.black)
@@ -24,7 +23,9 @@ struct ProfileActionButtonView: View {
                         RoundedRectangle(cornerRadius: 3)
                             .stroke(Color.gray, lineWidth: 1)
                     )
-            })
+            }).sheet(isPresented: $showEditProfile) {
+                EditProfileView(user: $viewModel.user)
+            }
 
         } else {
             HStack{
@@ -39,9 +40,9 @@ struct ProfileActionButtonView: View {
                                 .stroke(Color.gray, lineWidth: isFollowed ? 1 : 0)
                         )
                 }).cornerRadius(3)
-
-                Button(action: {}, label: {
-                    Text("Message")
+                
+                NavigationLink(destination: ChatView(user: viewModel.user), label: {
+                    Text("Mensaje")
                         .font(.system(size: 14, weight: .semibold))
                         .frame(width: 172, height: 32)
                         .foregroundColor(.black)
@@ -50,6 +51,7 @@ struct ProfileActionButtonView: View {
                                 .stroke(Color.gray, lineWidth: 1)
                         )
                 })
+                
             }
         }
     }

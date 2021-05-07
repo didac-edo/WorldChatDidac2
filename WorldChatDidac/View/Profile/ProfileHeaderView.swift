@@ -23,10 +23,11 @@ struct ProfileHeaderView: View {
 
                 Spacer()
                 
-                HStack(spacing: 32) {
-                    UserStateView(value: 2, title: "Post")
-                    UserStateView(value: 134, title: "Followers")
-                    UserStateView(value: 10, title: "Followings")
+                HStack(spacing: 16) {
+                    
+                    UserStateView(value: viewModel.user.stats?.Publicaciones ?? 0, title: "Publicaciones")
+                    UserStateView(value: viewModel.user.stats?.Seguidores ?? 0, title: "Seguidores")
+                    UserStateView(value: viewModel.user.stats?.Siguiendo ?? 0, title: "Siguiendo")
                 }.padding(.trailing, 32)
             }
             
@@ -34,10 +35,12 @@ struct ProfileHeaderView: View {
                 .font(.system(size: 15, weight: .semibold))
                 .padding([.leading, .top])
             
-            Text("Girona || iOS")
-                .font(.system(size: 15))
-                .padding(.leading)
-                .padding(.top, 1)
+            if let bio = viewModel.user.bio {
+                Text(bio)
+                    .font(.system(size: 15))
+                    .padding(.leading)
+                    .padding(.top, 1)
+            }
             
             HStack {
                 Spacer()

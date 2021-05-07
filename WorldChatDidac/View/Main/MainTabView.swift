@@ -11,10 +11,12 @@ struct MainTabView: View {
     let user: User
     @Binding var selectedIndex: Int
     
+    public var locationManager = LocationManager()
+    
     var body: some View {
         NavigationView {
             TabView(selection: $selectedIndex) {
-                FeedView()
+                PublicationView()
                     .onTapGesture {
                         selectedIndex = 0
                     }
@@ -30,20 +32,20 @@ struct MainTabView: View {
                         Image(systemName: "magnifyingglass")
                     }.tag(1)
             
-                UploadPostView(tabIndex: $selectedIndex)
+                UploadPostView(placePost: "", tabIndex: $selectedIndex)
                     .onTapGesture {
                         selectedIndex = 2
                     }
                     .tabItem {
                         Image(systemName: "plus.square")
                     }.tag(2)
-            
-                NotificationsView()
+                
+                PlaceView()
                     .onTapGesture {
                         selectedIndex = 3
                     }
                     .tabItem {
-                        Image(systemName: "heart")
+                        Image(systemName: "airplane")
                     }.tag(3)
             
                 ProfileView(user: user)
@@ -56,7 +58,7 @@ struct MainTabView: View {
             }
             .navigationTitle(tabTitle)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: logoutButton)
+            .navigationBarItems(leading: logoutButton, trailing: conversation)
             .accentColor(.black)
         }
     }
@@ -68,19 +70,28 @@ struct MainTabView: View {
             Text("Logout").foregroundColor(.black)
         }
     }
+    var conversation: some View {
+        NavigationLink(
+            destination: ConversationsView(user: user),
+            label: {
+                Image(systemName: "paperplane")
+                    .foregroundColor(.black)
+            })
+    }
+    
     
     var tabTitle: String {
         switch selectedIndex {
         case 0:
-            return "Feed"
+            return "WorldChat"
         case 1:
-            return "Explore"
+            return ""
         case 2:
-            return "New Post"
+            return ""
         case 3:
-            return "Notifications"
+            return "Lugares"
         case 4:
-            return "Profile"
+            return "Perfil"
         default:
             return ""
         }

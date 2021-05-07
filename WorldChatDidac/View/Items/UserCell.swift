@@ -27,6 +27,7 @@ struct UserCell: View {
                 Text(user.fullname)
                     .font(.system(size: 14))
             }
+            .foregroundColor(.black)
             
             Spacer()
         }

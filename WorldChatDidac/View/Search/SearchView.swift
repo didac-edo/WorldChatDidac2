@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @State var searchText = ""
     @State var inSearchMode = false
-    @ObservedObject var viewModel = SearchViewModel()
+    @ObservedObject var viewModel = SearchViewModel(config: .search)
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct SearchView: View {
                 if inSearchMode {
                     UserListView(viewModel: viewModel, searchText: $searchText)
                 } else {
-                    PostGridView()
+                    PostGridView(config: .explore)
                 }
             }
         }

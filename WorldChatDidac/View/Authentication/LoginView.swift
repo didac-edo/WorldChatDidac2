@@ -35,7 +35,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .padding(.horizontal, 32)
                         
-                        CustomSecureField(text: $password, placeholder: Text("Password"))
+                        CustomSecureField(text: $password, placeholder: Text("Contraseña"))
                             .padding()
                             .background(Color(.init(white: 1, alpha: 0.15)))
                             .cornerRadius(10)
@@ -45,20 +45,12 @@ struct LoginView: View {
                                         
                     HStack {
                         Spacer()
-                        
-                        Button(action: {}, label: {
-                            Text("Forgot Password?")
-                                .font(.system(size: 13, weight: .semibold))
-                                .foregroundColor(.black)
-                                .padding(.top)
-                                .padding(.trailing, 28)
-                        })
                     }
                                         
                     Button(action: {
                         viewModel.login(withEmail: email, password: password)
                     }, label: {
-                        Text("Sign In")
+                        Text("Iniciar Sesión")
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(width: 360, height: 50)
@@ -73,10 +65,10 @@ struct LoginView: View {
                         destination: RegistrationView().navigationBarHidden(true),
                         label: {
                             HStack {
-                                Text("Don't have an account?")
+                                Text("No tengo una cuenta?")
                                     .font(.system(size: 14))
                                 
-                                Text("Sign Up")
+                                Text("Regístrate")
                                     .font(.system(size: 14, weight: .semibold))
                             }
                             .foregroundColor(.black)
