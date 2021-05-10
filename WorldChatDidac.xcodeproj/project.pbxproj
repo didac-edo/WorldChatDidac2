@@ -60,6 +60,7 @@
 		A086447A263EBB98002A2C92 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0864479263EBB98002A2C92 /* ChatBubble.swift */; };
 		A091C7E726304CE300DA643B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091C7E626304CE300DA643B /* ProfileViewModel.swift */; };
 		A091C7EB2630544E00DA643B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A091C7EA2630544D00DA643B /* UserService.swift */; };
+		A0AD76B926491AD300001A63 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0AD76B826491AD300001A63 /* Launch Screen.storyboard */; };
 		A0B10E652627273600795EE7 /* WorldChatDidacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B10E642627273600795EE7 /* WorldChatDidacApp.swift */; };
 		A0B10E692627273800795EE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B10E682627273800795EE7 /* Assets.xcassets */; };
 		A0B10E6C2627273800795EE7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B10E6B2627273800795EE7 /* Preview Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		A0864479263EBB98002A2C92 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		A091C7E626304CE300DA643B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A091C7EA2630544D00DA643B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A0AD76B826491AD300001A63 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0B10E612627273600795EE7 /* WorldChatDidac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldChatDidac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B10E642627273600795EE7 /* WorldChatDidacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldChatDidacApp.swift; sourceTree = "<group>"; };
 		A0B10E682627273800795EE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				A0B10E6D2627273800795EE7 /* Info.plist */,
 				A06395322628541C003214AA /* GoogleService-Info.plist */,
 				A0B10E6A2627273800795EE7 /* Preview Content */,
+				A0AD76B826491AD300001A63 /* Launch Screen.storyboard */,
 			);
 			path = WorldChatDidac;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			files = (
 				A0B10E6C2627273800795EE7 /* Preview Assets.xcassets in Resources */,
 				A0B10E692627273800795EE7 /* Assets.xcassets in Resources */,
+				A0AD76B926491AD300001A63 /* Launch Screen.storyboard in Resources */,
 				A06395332628541C003214AA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
