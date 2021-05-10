@@ -42,8 +42,8 @@ struct UploadPostView: View {
                     TextArea(text: $captionText, placeholder: "Ingrese su título...")
                         .frame(height: 200)
                     
-                    TextArea(text: $placePost, placeholder: "Lugar dónde estás")
-                        .frame(height: 200)
+//                    TextArea(text: $placePost, placeholder: "Lugar dónde estás")
+//                        .frame(height: 200)
 
                     
                 }

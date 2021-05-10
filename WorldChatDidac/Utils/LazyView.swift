@@ -1,8 +1,8 @@
 //
 //  LazyView.swift
-//  InstagramSwiftUITutorial
+//  WorldChatDidac
 //
-//  Created by Dídac Edo Gibert on 14/4/21.
+//  Created by Dídac Edo Gibert on 25/4/21.
 //
 
 import SwiftUI
